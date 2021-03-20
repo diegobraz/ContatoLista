@@ -1,5 +1,6 @@
 package com.example.listacontato
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
@@ -13,16 +14,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.listacontato.Adapter.Contato.ClickContatoListener
 import com.example.listacontato.Adapter.Contato.ContatoAdapter
 import com.example.listacontato.Data.Contato
 import java.util.zip.Inflater
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ClickContatoListener {
     private val rvList : RecyclerView by lazy {
         findViewById<RecyclerView>(R.id.rv_list)
     }
 
-    private val adapter =  ContatoAdapter()
+    private val adapter =  ContatoAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,5 +90,10 @@ class MainActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun ClickContato(Contato: Contato) {
+       val intent = Intent(this,ContatoDetalhe::class.java)
+        startActivity(intent)
     }
 }
