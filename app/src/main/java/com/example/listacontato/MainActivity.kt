@@ -6,7 +6,11 @@ import android.os.Message
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.listacontato.Adapter.Contato.ContatoAdapter
@@ -22,10 +26,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.drawer_menu)
+        initDrawer()
         bindView()
         updateList()
     }
+    private fun initDrawer(){
+        val drawerLayout = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_home)
+        setSupportActionBar(toolbar)
+        val toogle = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu1,R.string.menu2)
+        drawerLayout.addDrawerListener(toogle)
+        toogle.syncState()
+    }
+
     private fun bindView() {
         rvList.adapter = adapter
         rvList.layoutManager = LinearLayoutManager(this)
