@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.listacontato.Adapter.Contato.ClickContatoListener
 import com.example.listacontato.Adapter.Contato.ContatoAdapter
+import com.example.listacontato.ContatoDetalhe.Companion.EXTRA_CONTATO
 import com.example.listacontato.Data.Contato
 import java.util.zip.Inflater
 
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity(), ClickContatoListener {
 
     override fun ClickContato(Contato: Contato) {
        val intent = Intent(this,ContatoDetalhe::class.java)
+        intent.putExtra(EXTRA_CONTATO,Contato)
         startActivity(intent)
     }
 }
