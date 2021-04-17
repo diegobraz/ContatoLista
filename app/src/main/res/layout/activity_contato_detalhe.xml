@@ -10,8 +10,11 @@
         android:id="@+id/imagem_contato"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="151dp"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.Toolbar
@@ -34,19 +37,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imagem_contato"
-        tools:layout_editor_absoluteX="69dp"
-        tools:text="Nome do contato" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        tools:text="Nome do contato"
+        android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/numero_contato"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:textAlignment="center"
         android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nome_contato"
-        tools:layout_editor_absoluteX="114dp"
-        tools:text="(85)00000000" />
+        tools:text="(85)00000000"
+        android:gravity="center_horizontal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
